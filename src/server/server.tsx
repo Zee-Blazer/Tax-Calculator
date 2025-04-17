@@ -1,10 +1,5 @@
 "use server";
 
-type TaxBracket = {
-    rate: number;
-    amount: number;
-  };
-
 export async function calculateTax(formData: FormData) {
     const amount = formData.get("amount");
 
@@ -49,4 +44,11 @@ export async function calculateTax(formData: FormData) {
         tax,
         netPay
     });
+
+    return {
+        grossPay,
+        tax,
+        netPay,
+      };
+
 }
